@@ -170,7 +170,7 @@ class _OnBoard extends HookConsumerWidget {
     final double pageViewHeight = screenSize.height -
         skipContainerHeight -
         footerContentHeight -
-        pageIndicatorHeight-80.0;
+        pageIndicatorHeight-85.0;
 
     return SafeArea(
       child: SingleChildScrollView(
