@@ -65,12 +65,7 @@ class OnBoard extends HookConsumerWidget {
     this.nextButton,
     this.duration = const Duration(milliseconds: 250),
     this.curve = Curves.easeInOut,
-    this.pageIndicatorStyle = const PageIndicatorStyle(
-        width: 150,
-        activeColor: Colors.blue,
-        inactiveColor: Colors.blueAccent,
-        activeSize: Size(12, 12),
-        inactiveSize: Size(8, 8)),
+    this.pageIndicatorStyle = const PageIndicatorStyle(width: 150, activeColor: Colors.blue, inactiveColor: Colors.blueAccent, activeSize: Size(12, 12), inactiveSize: Size(8, 8)),
   }) : super(key: key);
 
   @override
@@ -153,12 +148,7 @@ class _OnBoard extends HookConsumerWidget {
     this.nextButton,
     this.duration = const Duration(milliseconds: 250),
     this.curve = Curves.easeInOut,
-    this.pageIndicatorStyle = const PageIndicatorStyle(
-        width: 150,
-        activeColor: Colors.blue,
-        inactiveColor: Colors.blueAccent,
-        activeSize: Size(12, 12),
-        inactiveSize: Size(8, 8)),
+    this.pageIndicatorStyle = const PageIndicatorStyle(width: 150, activeColor: Colors.blue, inactiveColor: Colors.blueAccent, activeSize: Size(12, 12), inactiveSize: Size(8, 8)),
   }) : super(key: key);
 
   @override
@@ -167,33 +157,29 @@ class _OnBoard extends HookConsumerWidget {
     final onBoardStateNotifier = ref.watch(onBoardStateProvider.notifier);
 
     final screenSize = MediaQuery.of(context).size;
-    final double pageViewHeight = screenSize.height -
-        skipContainerHeight -
-        footerContentHeight -
-        pageIndicatorHeight-85.0;
+    final double pageViewHeight = screenSize.height - skipContainerHeight - footerContentHeight - pageIndicatorHeight - 85.0;
 
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Container(
-              // height: skipContainerHeight,
-              alignment: Alignment.centerRight,
-              child: skipButton ??
-                  TextButton(
-                    onPressed: () => _onSkipPressed(onSkip),
-                    child: const Text(
-                      "Skip",
-                      style: TextStyle(color: Colors.blueAccent),
-                    ),
-                  ),
-            ),
+            // Container(
+            //   // height: skipContainerHeight,
+            //   alignment: Alignment.centerRight,
+            //   child: skipButton ??
+            //       TextButton(
+            //         onPressed: () => _onSkipPressed(onSkip),
+            //         child: const Text(
+            //           "Skip",
+            //           style: TextStyle(color: Colors.blueAccent),
+            //         ),
+            //       ),
+            // ),
             SizedBox(
               height: pageViewHeight,
               child: PageView.builder(
                 controller: pageController,
-                onPageChanged: (page) => onBoardStateNotifier.onPageChanged(
-                    page, onBoardData.length),
+                onPageChanged: (page) => onBoardStateNotifier.onPageChanged(page, onBoardData.length),
                 itemCount: onBoardData.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
@@ -217,7 +203,7 @@ class _OnBoard extends HookConsumerWidget {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.only(top: 12, right: 4,left:4),
+                        padding: const EdgeInsets.only(top: 12, right: 4, left: 4),
                         margin: const EdgeInsets.symmetric(horizontal: 18),
                         child: Text(
                           onBoardData[index].description,
@@ -232,7 +218,8 @@ class _OnBoard extends HookConsumerWidget {
                     ],
                   );
                 },
-              ),),
+              ),
+            ),
 
             SizedBox(
               height: pageIndicatorHeight,
@@ -242,7 +229,9 @@ class _OnBoard extends HookConsumerWidget {
                 pageIndicatorStyle: pageIndicatorStyle,
               ),
             ),
-            SizedBox(height: 8,)
+            SizedBox(
+              height: 8,
+            )
             // Container(
             //   height: footerContentHeight,
             //   width: screenSize.width,
@@ -266,7 +255,8 @@ class _OnBoard extends HookConsumerWidget {
             //   ),
             // ),
           ],
-        ),),
+        ),
+      ),
     );
   }
 
@@ -279,8 +269,7 @@ class _OnBoard extends HookConsumerWidget {
       );
     } else {
       if (onDone == null) {
-        throw Exception(
-            'Either provide "onDone" callback or add "nextButton" Widget to "OnBoard" Widget to handle done state');
+        throw Exception('Either provide "onDone" callback or add "nextButton" Widget to "OnBoard" Widget to handle done state');
       } else {
         onDone!();
       }
@@ -289,8 +278,7 @@ class _OnBoard extends HookConsumerWidget {
 
   void _onSkipPressed(VoidCallback? onSkip) {
     if (onSkip == null) {
-      throw Exception(
-          'Either provide "onSkip" callback or add "skipButton" Widget to "OnBoard" Widget to handle skip state');
+      throw Exception('Either provide "onSkip" callback or add "skipButton" Widget to "OnBoard" Widget to handle skip state');
     } else {
       onSkip();
     }
