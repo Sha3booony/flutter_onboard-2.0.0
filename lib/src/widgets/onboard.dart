@@ -204,7 +204,7 @@ class _OnBoard extends HookConsumerWidget {
                           height: imageHeight,
                           width: imageWidth,
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
+                            padding: EdgeInsets.symmetric(
                                 horizontal:
                                     MediaQuery.of(context).size.width * 0.15),
                             child: Lottie.asset(onBoardData[index].imgUrl),
