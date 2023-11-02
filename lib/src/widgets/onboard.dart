@@ -6,6 +6,7 @@ import 'package:flutter_onboard/src/models/page_indicator_style_model.dart';
 import 'package:flutter_onboard/src/providers/providers.dart';
 import 'package:flutter_onboard/src/widgets/page_indicator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:lottie/lottie.dart';
 
 class OnBoard extends HookConsumerWidget {
   /// Data for OnBoard [List<OnBoardModel>]
@@ -198,12 +199,8 @@ class _OnBoard extends HookConsumerWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: <Widget>[
-                      Image.asset(
-                        onBoardData[index].imgUrl,
-                        width: imageWidth,
-                        height: imageHeight,
-                        fit: BoxFit.contain,
-                      ),
+                       SizedBox(height: imageHeight,width: imageWidth, child: Lottie.asset('onBoardData[index].imgUrl')),
+
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
