@@ -13,6 +13,7 @@ dependencies:
   freezed_annotation: ^0.15.0
   flutter_hooks: ^0.18.0
   hooks_riverpod: ^1.0.0
+  lottie: 2.3.2
 
 dev_dependencies:
   flutter_test:
