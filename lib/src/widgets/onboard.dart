@@ -167,7 +167,9 @@ class _OnBoard extends HookConsumerWidget {
     final onBoardState = ref.watch(onBoardStateProvider);
     final onBoardStateNotifier = ref.watch(onBoardStateProvider.notifier);
 
-    final screenSize = MediaQuery.of(context).size;
+    final screenSize = MediaQuery
+        .of(context)
+        .size;
     final double pageViewHeight = screenSize.height -
         skipContainerHeight -
         footerContentHeight -
@@ -194,21 +196,27 @@ class _OnBoard extends HookConsumerWidget {
               height: pageViewHeight,
               child: PageView.builder(
                 controller: pageController,
-                onPageChanged: (page) => onBoardStateNotifier.onPageChanged(
-                    page, onBoardData.length),
+                onPageChanged: (page) =>
+                    onBoardStateNotifier.onPageChanged(
+                        page, onBoardData.length),
                 itemCount: onBoardData.length,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: <Widget>[
+                      SizedBox(height: pageViewHeight * 0.1,),
                       SizedBox(
                           height: imageHeight,
                           width: imageWidth,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
-                                    MediaQuery.of(context).size.width * 0.15),
+                                MediaQuery
+                                    .of(context)
+                                    .size
+                                    .width * 0.15),
                             child: Lottie.asset(onBoardData[index].imgUrl),
                           )),
+                      SizedBox(height: 20,),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
@@ -223,7 +231,7 @@ class _OnBoard extends HookConsumerWidget {
                       ),
                       Container(
                         padding:
-                            const EdgeInsets.only(top: 12, right: 4, left: 4),
+                        const EdgeInsets.only(top: 12, right: 4, left: 4),
                         margin: const EdgeInsets.symmetric(horizontal: 18),
                         child: Text(
                           onBoardData[index].description,
