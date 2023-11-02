@@ -171,7 +171,8 @@ class _OnBoard extends HookConsumerWidget {
     final double pageViewHeight = screenSize.height -
         skipContainerHeight -
         footerContentHeight -
-        pageIndicatorHeight-85.0;
+        pageIndicatorHeight -
+        85.0;
 
     return SafeArea(
       child: SingleChildScrollView(
@@ -199,8 +200,15 @@ class _OnBoard extends HookConsumerWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: <Widget>[
-                       SizedBox(height: imageHeight,width: imageWidth, child: Lottie.asset('onBoardData[index].imgUrl')),
-
+                      SizedBox(
+                          height: imageHeight,
+                          width: imageWidth,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal:
+                                    MediaQuery.of(context).size.width * 0.15),
+                            child: Lottie.asset(onBoardData[index].imgUrl),
+                          )),
                       Container(
                         margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
@@ -214,7 +222,8 @@ class _OnBoard extends HookConsumerWidget {
                         ),
                       ),
                       Container(
-                        padding: const EdgeInsets.only(top: 12, right: 4,left:4),
+                        padding:
+                            const EdgeInsets.only(top: 12, right: 4, left: 4),
                         margin: const EdgeInsets.symmetric(horizontal: 18),
                         child: Text(
                           onBoardData[index].description,
@@ -229,7 +238,8 @@ class _OnBoard extends HookConsumerWidget {
                     ],
                   );
                 },
-              ),),
+              ),
+            ),
 
             SizedBox(
               height: pageIndicatorHeight,
@@ -239,7 +249,9 @@ class _OnBoard extends HookConsumerWidget {
                 pageIndicatorStyle: pageIndicatorStyle,
               ),
             ),
-            SizedBox(height: 8,)
+            SizedBox(
+              height: 8,
+            )
             // Container(
             //   height: footerContentHeight,
             //   width: screenSize.width,
@@ -263,7 +275,8 @@ class _OnBoard extends HookConsumerWidget {
             //   ),
             // ),
           ],
-        ),),
+        ),
+      ),
     );
   }
 
