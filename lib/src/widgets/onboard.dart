@@ -172,11 +172,11 @@ class _OnBoard extends HookConsumerWidget {
         skipContainerHeight -
         footerContentHeight -
         pageIndicatorHeight -
-        85.0;
+        90.0;
 
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Column(
+      child: 
+         ListView(
           children: <Widget>[
             Container(
               // height: skipContainerHeight,
@@ -191,6 +191,7 @@ class _OnBoard extends HookConsumerWidget {
                   ),
             ),
             SizedBox(
+              height: pageViewHeight,
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: (page) => onBoardStateNotifier.onPageChanged(
@@ -200,8 +201,8 @@ class _OnBoard extends HookConsumerWidget {
                   return Column(
                     children: <Widget>[
                       SizedBox(
-                          height: imageHeight !* 0.7,
-                          width: imageWidth  !* 0.7,
+                          height: imageHeight,
+                          width: imageWidth,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -209,7 +210,7 @@ class _OnBoard extends HookConsumerWidget {
                             child: Lottie.asset(onBoardData[index].imgUrl),
                           )),
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 8),
+                        margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           onBoardData[index].title,
                           textAlign: TextAlign.center,
@@ -223,7 +224,7 @@ class _OnBoard extends HookConsumerWidget {
                       Container(
                         padding:
                             const EdgeInsets.only(top: 12, right: 4, left: 4),
-                        margin: const EdgeInsets.symmetric(horizontal: 12),
+                        margin: const EdgeInsets.symmetric(horizontal: 18),
                         child: Text(
                           onBoardData[index].description,
                           textAlign: TextAlign.center,
@@ -274,7 +275,7 @@ class _OnBoard extends HookConsumerWidget {
             //   ),
             // ),
           ],
-        ),
+        
       ),
     );
   }
