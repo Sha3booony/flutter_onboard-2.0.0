@@ -191,7 +191,6 @@ class _OnBoard extends HookConsumerWidget {
                   ),
             ),
             SizedBox(
-              height: pageViewHeight * 0.7,
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: (page) => onBoardStateNotifier.onPageChanged(
@@ -201,8 +200,9 @@ class _OnBoard extends HookConsumerWidget {
                   return Column(
                     children: <Widget>[
                       SizedBox(
-                          height: imageHeight,
-                          width: imageWidth,
+                          height: imageHeight * 0.7,
+,
+                          width: imageWidth  * 0.7,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal:
@@ -210,7 +210,7 @@ class _OnBoard extends HookConsumerWidget {
                             child: Lottie.asset(onBoardData[index].imgUrl),
                           )),
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 12),
+                        margin: const EdgeInsets.symmetric(horizontal: 8),
                         child: Text(
                           onBoardData[index].title,
                           textAlign: TextAlign.center,
@@ -224,7 +224,7 @@ class _OnBoard extends HookConsumerWidget {
                       Container(
                         padding:
                             const EdgeInsets.only(top: 12, right: 4, left: 4),
-                        margin: const EdgeInsets.symmetric(horizontal: 18),
+                        margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           onBoardData[index].description,
                           textAlign: TextAlign.center,
