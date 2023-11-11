@@ -201,7 +201,6 @@ class _OnBoard extends HookConsumerWidget {
                     children: <Widget>[
                       SizedBox(
                           height: imageHeight * 0.7,
-,
                           width: imageWidth  * 0.7,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
