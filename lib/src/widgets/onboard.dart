@@ -191,7 +191,7 @@ class _OnBoard extends HookConsumerWidget {
                   ),
             ),
             SizedBox(
-              // height: pageViewHeight,
+              height: pageViewHeight,
               child: PageView.builder(
                 controller: pageController,
                 onPageChanged: (page) => onBoardStateNotifier.onPageChanged(
@@ -210,7 +210,7 @@ class _OnBoard extends HookConsumerWidget {
                             child: Lottie.asset(onBoardData[index].imgUrl),
                           )),
                       Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 16),
+                        margin: const EdgeInsets.symmetric(horizontal: 12),
                         child: Text(
                           onBoardData[index].title,
                           textAlign: TextAlign.center,
