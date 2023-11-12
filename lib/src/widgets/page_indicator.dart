@@ -27,7 +27,8 @@ class PageIndicator extends StatelessWidget {
       curve: Curves.easeInOutSine,
       width: pageIndicatorStyle!.width,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: _dots,
       ),
     );
@@ -37,22 +38,24 @@ class PageIndicator extends StatelessWidget {
     final activeSize = pageIndicatorStyle!.activeSize;
     final inactiveSize = pageIndicatorStyle!.inactiveSize;
 
-    return index == activePage
-        ? Container(
-            width: activeSize!.width,
-            height: activeSize.height,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: pageIndicatorStyle!.activeColor,
-            ),
-          )
-        : Container(
-            width: inactiveSize!.width,
-            height: inactiveSize.height,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: pageIndicatorStyle!.inactiveColor,
-            ),
-          );
+    return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        child: index == activePage
+            ? Container(
+                width: activeSize!.width,
+                height: activeSize.height,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: pageIndicatorStyle!.activeColor,
+                ),
+              )
+            : Container(
+                width: inactiveSize!.width,
+                height: inactiveSize.height,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: pageIndicatorStyle!.inactiveColor,
+                ),
+              ));
   }
 }
